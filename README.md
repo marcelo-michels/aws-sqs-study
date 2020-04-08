@@ -32,3 +32,7 @@ Arquivo qual é responsavel por gravar itens em uma FILA
 **worker.js**    
 Arquivo qual é responsavel por ler e deletar as mensagens da fila    
 Este pode ser executado em paralelo quantas vezes for necessário (em terminais ou maquinas diferentes)  
+
+
+## Resultado
+![](assets/result.png)
