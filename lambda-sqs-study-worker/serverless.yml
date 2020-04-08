@@ -1,0 +1,31 @@
+
+service: lambda-sqs-study-worker
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: sa-east-1
+  profile: awsmmcom
+  memorySize: 128 # MB
+  timeout: 10 # seconds
+
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sqs:*"
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource: "*"
+
+functions:
+  hello:
+    handler: handler.hello
+    reservedConcurrency: 1 
+    events:
+      - sqs: 
+          arn: "arn:aws:sqs:${self:provider.region}:728157531332:SQS_STUDY"
+          batchSize: 10
