@@ -21,8 +21,8 @@ O Amazon Simple Queue Service (SQS) é um serviço de filas de mensagens gerenci
 ## Custo  
 O nível gratuito da AWS inclui 1 milhão de solicitações por mês.
 
-**Filas Padrão:** 0,40 USD por milhão de solicitações de(0,0000004 USD por solicitação)  
-**Filas FIFO:** 0,50 USD por milhão de solicitações de(0,0000004 USD por solicitação)
+**Filas Padrão:** 0,40 USD por milhão de solicitações (0,0000004 USD por solicitação)  
+**Filas FIFO:** 0,50 USD por milhão de solicitações (0,0000005 USD por solicitação)
 
 ## Study Lab  
   
