@@ -1,7 +1,6 @@
 
 service: lambda-sqs-study-worker
 
-
 provider:
   name: aws
   runtime: nodejs12.x
@@ -25,7 +24,7 @@ functions:
   hello:
     handler: handler.hello
     reservedConcurrency: 1 
-    events:
+    events: #SQS Trigger
       - sqs: 
           arn: "arn:aws:sqs:${self:provider.region}:728157531332:SQS_STUDY"
-          batchSize: 10
+          batchSize: 10 # Quantidade de mensagens que vai enviar pra função por vez (max 10)
