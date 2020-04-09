@@ -51,7 +51,7 @@ async function index() {
                 MessageBody: `This is message body ${item}`,
                 QueueUrl: queueUrl,
             };
-            return promises.push(sqs.sendMessage(params).promise());
+            return sqs.sendMessage(params).promise();
         })); 
 
         countMsgs();
