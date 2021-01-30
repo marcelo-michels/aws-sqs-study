@@ -12,6 +12,7 @@ const QUEUE_NAME = process.env.QUEUE_NAME;
 async function getQueueURL() {
     try { 
         const url = await sqs.getQueueUrl({ QueueName: QUEUE_NAME }).promise();
+        console.log('url.QueueUrl', url.QueueUrl)
         return url.QueueUrl;
     } catch (error) { }
 }
@@ -48,7 +49,13 @@ async function index() {
         const promises = Array.from(Array(100).keys());
         await Promise.all(promises.map(item =>{
             const params = {
-                MessageBody: `This is message body ${item}`,
+                MessageBody: JSON.stringify([
+                    {
+                        "id": "1607030074821",
+                        "id_transaction": 21,
+                        "queue_number": 21,
+                    }
+                ]),
                 QueueUrl: queueUrl,
             };
             return sqs.sendMessage(params).promise();
